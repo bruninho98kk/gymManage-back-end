@@ -1,25 +1,12 @@
 import express from "express";
 
-// Importar todas as rotas
-import authRouter from "./auth.routes.js";
-import animesRouter from "./animeRoutes.js";
-import personagensRouter from "./personagemRoutes.js";
-import collectionRouter from "./collectionRoutes.js";
-import cardRouter from "./cardRoutes.js";
 
-import authMiddleware from "../middleware/authMiddleware.js";
+import exercisesRouter from "./exerciseRoutes.js";
+
 
 const router = express.Router();
 
-// Rotas públicas
-router.use("/auth", authRouter);
-router.use("/collections", collectionRouter);
-router.use("/cards", cardRouter);
+router.use("/exercises", exercisesRouter);
 
-// Rotas protegidas
-router.use(authMiddleware);
-
-router.use("/animes", animesRouter);
-router.use("/personagens", personagensRouter);
 
 export default router;
